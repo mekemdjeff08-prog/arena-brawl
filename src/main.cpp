@@ -7,73 +7,9 @@
 #include <limits>
 #include <cstdlib>
 #include "Utils.hpp"
+#include "Equipement.hpp"
+#include "Competence.hpp"
 
-
-enum class TypeCondition { DegatsSubis, DegatsInfliges, CompetencesEpiques, CoupsDoubles, PvBas };
-
-struct Condition {
-    TypeCondition type;
-    int seuil;
-};
-
-struct Equipement {
-    std::string nom;
-    int bonusPuissance;
-    int bonusPv;
-    int bonusMana;
-    bool epique = false;
-    Condition condition = {TypeCondition::DegatsSubis, 0};
-};
-
-struct Verrouille {
-    Equipement objet;
-    bool estArme;
-};
-
-std::string decrire(const Condition& c) {
-    std::string n = std::to_string(c.seuil);
-    switch (c.type) {
-        case TypeCondition::DegatsSubis:        return "encaisser " + n + " degats au total";
-        case TypeCondition::DegatsInfliges:     return "infliger " + n + " degats au total";
-        case TypeCondition::CompetencesEpiques: return "lancer " + n + " competences epiques";
-        case TypeCondition::CoupsDoubles:       return "reussir " + n + " coups doubles";
-        case TypeCondition::PvBas:              return "tomber a " + n + "% de PV ou moins";
-    }
-    return "";
-
-};
-
-struct Competence {
-    std::string nom;
-    int coutMana;
-    int degatsMinPct;  
-    int degatsMaxPct;
-    int coutPv;         
-    int soin;           
-    int chanceDouble;   
-    std::string rarete; 
-};
-
-
-const int COEF_ATTAQUE_NORMALE = 100;   
-int coefficientRang(const std::string& rarete) {
-    if (rarete == "Mineure") return 130;
-    if (rarete == "Speciale") return 200;
-    return 300;                        
-}
-
-int coefficientCompetence(const Competence& c) {
-    if (c.degatsMaxPct == 0) return 0;              
-    int coef = coefficientRang(c.rarete);
-    if (c.soin > 0) coef = coef * 50 / 100;          
-    if (c.chanceDouble > 0) coef = coef * 70 / 100;  
-    return coef;
-}
-
-int calculerDegats(int puissance, int coefPct) {
-    int base = puissance * coefPct / 100;
-    return nombreAleatoire(base * 85 / 100, base * 115 / 100);
-}  
 
 class Fighter {
 protected:
