@@ -11,3 +11,8 @@ std::string decrire(const Condition& c) {
     }
     return "";
 }
+
+std::vector<Equipement> accessoiresCommuns() {
+    return { {"Anneau de force", 1, 0, 0}, {"Amulette de vie", 0, 15, 0},
+             {"Pendentif de mana", 0, 0, 20}, {"Talisman du chasseur", 1, 5, 5} };
+}

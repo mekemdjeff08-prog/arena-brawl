@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <vector>
 
 enum class TypeCondition { DegatsSubis, DegatsInfliges, CompetencesEpiques, CoupsDoubles, PvBas };
 
@@ -23,3 +24,4 @@ struct Verrouille {
 };
 
 std::string decrire(const Condition& c);
+std::vector<Equipement> accessoiresCommuns();
