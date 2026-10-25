@@ -118,8 +118,10 @@ void jouerTour(Fighter& actif, Fighter& cible) {
         }
     }
     actif.finDeTour();
-    std::cout << cible.getNom() << " : " << cible.getPv() << "/"
-              << cible.getPvMax() << " PV" << std::endl;
+    std::cout << actif.getNom() << " : " << actif.getPv() << "/" << actif.getPvMax()
+              << " PV  |  "
+              << cible.getNom() << " : " << cible.getPv() << "/" << cible.getPvMax()
+              << " PV" << std::endl;
 }
 
 std::unique_ptr<Fighter> creerCombattant(int numero) {
@@ -139,7 +141,7 @@ std::unique_ptr<Fighter> creerCombattant(int numero) {
 
 int menuPrincipal() {
     std::cout << "\nARENA BRAWL\n1. Mode 1 VS 1\n2. Mode 1 VS Ordinateur" << std::endl;
-    return lireEntier("Votre choix : ", 1, 2);
+        return lireEntier("Votre choix: ", 1, 2);
 }
 
 void pause() {

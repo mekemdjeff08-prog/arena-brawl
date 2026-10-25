@@ -237,6 +237,8 @@ void jouerTourIA(Fighter& ia, Fighter& joueur, Niveau niveau) {
     ia.finDeTour();
     ia.verifierDeblocages();
     joueur.verifierDeblocages();
-    std::cout << joueur.getNom() << " : " << joueur.getPv() << "/"
-              << joueur.getPvMax() << " PV" << std::endl;
+    std::cout << ia.getNom() << " : " << ia.getPv() << "/" << ia.getPvMax()
+              << " PV  |  "
+              << joueur.getNom() << " : " << joueur.getPv() << "/" << joueur.getPvMax()
+              << " PV" << std::endl;
 }
