@@ -122,4 +122,6 @@ arena-brawl/
 └── README.md
 ```
 
-##mekemdjeff08
+## Auteur
+
+[mekemdjeff08](https://github.com/mekemdjeff08-prog)
