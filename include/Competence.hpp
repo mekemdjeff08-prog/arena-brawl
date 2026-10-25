@@ -4,8 +4,7 @@
 struct Competence {
     std::string nom;
     int coutMana;
-    int degatsMinPct;   // pour l'instant : indique seulement si la competence fait des degats
-    int degatsMaxPct;
+    bool offensive;     // true si la competence inflige des degats
     int coutPv;
     int soin;
     int chanceDouble;

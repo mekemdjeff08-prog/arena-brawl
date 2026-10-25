@@ -22,12 +22,12 @@ public:
     }
     std::vector<Competence> competences() const override {
         return {
-            {"Frappe rapide",     5,  60,  90,  0,  0, 0, "Mineure"},
-            {"Second souffle",   10,   0,   0,  0, 35, 0, "Mineure"},
-            {"Coup de bouclier", 15, 100, 140,  0,  0, 0, "Speciale"},
-            {"Tranche-Monde",    40, 180, 230,  0,  0, 0, "Epique"},
-            {"Rempart Eternel",  45,  90, 120,  0, 50, 0, "Epique"},
-            {"Colere du Titan",  50, 220, 280, 10,  0, 0, "Epique"}
+            {"Frappe rapide",     5, true,   0,  0, 0, "Mineure"},
+            {"Second souffle",   10, false,  0, 35, 0, "Mineure"},
+            {"Coup de bouclier", 15, true,   0,  0, 0, "Speciale"},
+            {"Tranche-Monde",    40, true,   0,  0, 0, "Epique"},
+            {"Rempart Eternel",  45, true,   0, 50, 0, "Epique"},
+            {"Colere du Titan",  50, true,  10,  0, 0, "Epique"}
         };
     }
 

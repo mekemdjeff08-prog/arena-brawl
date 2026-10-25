@@ -288,10 +288,10 @@ public:
         if (c.rarete == "Epique") epiquesLancees++;
         std::cout << nom << " utilise " << c.nom << " !" << std::endl;
 
-        bool combo = (c.rarete == "Epique" && boostActif && c.degatsMaxPct > 0);
+        bool combo = (c.rarete == "Epique" && boostActif && c.offensive);
         bool critique = combo || nombreAleatoire(1, 100) <= chanceCritique;
 
-        if (c.degatsMaxPct > 0) frapper(c, cible, critique);
+                if (c.offensive) frapper(c, cible, critique);
         if (c.chanceDouble > 0 && cible.estVivant()
             && nombreAleatoire(1, 100) <= c.chanceDouble) {
             std::cout << "  Coup double !" << std::endl;

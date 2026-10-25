@@ -8,7 +8,7 @@ int coefficientRang(const std::string& rarete) {
 }
 
 int coefficientCompetence(const Competence& c) {
-    if (c.degatsMaxPct == 0) return 0;               // competence sans degats
+        if (!c.offensive) return 0;                      // competence sans degats               // competence sans degats
     int coef = coefficientRang(c.rarete);
     if (c.soin > 0) coef = coef * 50 / 100;          // effet de soin : -50 %
     if (c.chanceDouble > 0) coef = coef * 70 / 100;  // coup double : -30 %

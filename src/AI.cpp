@@ -42,7 +42,7 @@ int meilleureCompetence(const Fighter& f, int rangMax, int reserveMana) {
         const Competence& c = liste[i];
         if (!f.peutLancer(c)) continue;
         if (rangRarete(c.rarete) > rangMax) continue;
-        if (c.degatsMaxPct == 0 && f.getPv() * 10 >= f.getPvMax() * 50) continue;
+        if (!c.offensive && f.getPv() * 10 >= f.getPvMax() * 50) continue;
         if (f.getMana() - c.coutMana < reserveMana) continue;
         if (c.coutPv > 0 && f.getPv() - c.coutPv < f.getPvMax() / 4) continue;
         int v = valeurCompetence(f, c);
@@ -67,7 +67,7 @@ int meilleurCombo(const Fighter& f, int pvMinPct) {
     int meilleureValeur = 0;
     for (int i = 0; i < (int)liste.size(); i++) {
         const Competence& c = liste[i];
-        if (c.rarete != "Epique" || c.degatsMaxPct == 0) continue;
+        if (c.rarete != "Epique" || !c.offensive) continue;
         if (!f.peutLancer(c)) continue;
         int pvApres = f.getPv() - prix - c.coutPv;
         if (pvApres <= 0 || pvApres * 100 < f.getPvMax() * pvMinPct) continue;
@@ -83,7 +83,7 @@ int meilleurCombo(const Fighter& f, int pvMinPct) {
 int coutEpiqueMin(const Fighter& f) {
     int mini = 0;
     for (const Competence& c : f.competences())
-        if (c.rarete == "Epique" && c.degatsMaxPct > 0 && (mini == 0 || c.coutMana < mini))
+        if (c.rarete == "Epique" && c.offensive && (mini == 0 || c.coutMana < mini))
             mini = c.coutMana;
     return mini;
 }
@@ -183,7 +183,7 @@ void tourExtreme(Fighter& ia, Fighter& joueur) {
     int finisher = -1;
     int degatsFinisher = 0;
     for (int i = 0; i < (int)liste.size(); i++) {
-        if (!ia.peutLancer(liste[i]) || liste[i].degatsMaxPct == 0) continue;
+        if (!ia.peutLancer(liste[i]) || !liste[i].offensive) continue;
         int d = degatsMoyens(ia, liste[i]);
         if (d >= joueur.getPv() && (finisher == -1 || d < degatsFinisher)) {
             finisher = i;

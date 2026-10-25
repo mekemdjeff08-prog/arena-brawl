@@ -22,12 +22,12 @@ public:
     }
     std::vector<Competence> competences() const override {
         return {
-            {"Etincelle",             10,  60,  90, 0,  0,  0, "Mineure"},
-            {"Bouclier de givre",     20,   0,   0, 0, 40,  0, "Mineure"},
-            {"Boule de feu",          45, 140, 190, 15, 0,  0, "Speciale"},
-            {"Meteore",              100, 250, 320, 20, 0,  0, "Epique"},
-            {"Foudre celeste",       110, 200, 260, 0,  0, 30, "Epique"},
-            {"Renaissance arcanique",120, 120, 160, 0, 50,  0, "Epique"}
+            {"Etincelle",             10, true,   0,  0,  0, "Mineure"},
+            {"Bouclier de givre",     20, false,  0, 40,  0, "Mineure"},
+            {"Boule de feu",          45, true,  15,  0,  0, "Speciale"},
+            {"Meteore",              100, true,  20,  0,  0, "Epique"},
+            {"Foudre celeste",       110, true,   0,  0, 30, "Epique"},
+            {"Renaissance arcanique",120, true,   0, 50,  0, "Epique"}
         };
     }
 };

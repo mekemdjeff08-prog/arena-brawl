@@ -23,12 +23,12 @@ public:
     }
     std::vector<Competence> competences() const override {
         return {
-            {"Tir precis",          8,  70, 100, 0,  0,  0, "Mineure"},
-            {"Fleche empoisonnee", 15,  90, 120, 0,  0,  0, "Mineure"},
-            {"Double tir",         25,  70, 100, 0,  0, 50, "Speciale"},
-            {"Pluie de fleches",   55, 150, 200, 0,  0, 40, "Epique"},
-            {"Vent guerrier",      60, 110, 150, 0, 30,  0, "Epique"},
-            {"Tir du faucon",      70, 220, 280, 0,  0,  0, "Epique"}
+                       {"Tir precis",          8, true,  0,  0,  0, "Mineure"},
+            {"Fleche empoisonnee", 15, true,  0,  0,  0, "Mineure"},
+            {"Double tir",         25, true,  0,  0, 50, "Speciale"},
+            {"Pluie de fleches",   55, true,  0,  0, 40, "Epique"},
+            {"Vent guerrier",      60, true,  0, 30,  0, "Epique"},
+            {"Tir du faucon",      70, true,  0,  0,  0, "Epique"}
         };
     }
 };
