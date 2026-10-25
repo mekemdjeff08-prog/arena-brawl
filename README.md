@@ -30,6 +30,12 @@ g++ -std=c++17 -Wall -Wextra -Iinclude (Get-ChildItem src\*.cpp) -o arena-brawl
 g++ -std=c++17 -Wall -Wextra -Iinclude src/*.cpp -o arena-brawl
 ./arena-brawl
 ```
+**Avec CMake (optionnel)**
+```
+cmake -S . -B build
+cmake --build build
+```
+L'exécutable se trouve ensuite dans le dossier `build`. Sous Windows avec MinGW, ajoute `-G "MinGW Makefiles"` à la première commande.
 
 ## Règles du jeu
 
